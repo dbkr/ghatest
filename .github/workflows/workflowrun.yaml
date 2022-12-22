@@ -1,4 +1,4 @@
-name: Netlify Main
+name: workflowrun
 on:
   workflow_run:
     workflows: ["Build"]
@@ -14,3 +14,7 @@ jobs:
         with:
           script: |
             console.log(context);
+            console.log("Head repo");
+            console.log(context.payload.workflow_run.head_repository);
+            console.log("repo");
+            console.log(context.payload.workflow_run.repository);
